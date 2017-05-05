@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jisuqni</title>
+    <link href="计算器.css" rel="stylesheet">
+</head>
+<body>
+    <table class="table">
+        <tr><th colspan="4">Calculator</th></tr>
+        <tr><td colspan="4"><input id="showWindow" type="text" value=""></td></tr>
+        <tr><td><input class="btn" type="button" value="POWER" onclick="showNum(this)"></td><td><input class="btn" type="button" value="CLEAR" onclick="showNum(this)"></td><td><input class="btn" type="button" value="BACK" onclick="showNum(this)"></td><td><input class="btn" type="button" value="option"></td></tr>
+        <tr><td><input class="btn" type="button" value="1" onclick="showNum(this)"></td><td><input class="btn" type="button" value="2" onclick="showNum(this)"></td><td><input class="btn" type="button" value="3" onclick="showNum(this)"></td><td><input class="btn" type="button" value="4" onclick="showNum(this)"></td></tr>
+        <tr><td><input class="btn" type="button" value="5" onclick="showNum(this)"></td><td><input class="btn" type="button" value="6" onclick="showNum(this)"></td><td><input class="btn" type="button" value="7" onclick="showNum(this)"></td><td><input class="btn" type="button" value="8" onclick="showNum(this)"></td></tr>
+        <tr><td><input class="btn" type="button" value="9" onclick="showNum(this)"></td><td><input class="btn" type="button" value="0" onclick="showNum(this)"></td><td><input class="btn" type="button" value="." onclick="showNum(this)"></td><td><input class="btn" type="button" value="=" onclick="showNum(this)"></td></tr>
+        <tr><td><input class="btn" type="button" value="+" onclick="showNum(this)"></td><td><input class="btn" type="button" value="-" onclick="showNum(this)"></td><td><input class="btn" type="button" value="×" onclick="showNum(this)"></td><td><input class="btn" type="button" value="÷" onclick="showNum(this)"></td></tr>
+    </table>
+
+    <script>
+        var temp1="";
+        var temp2="";
+        var symb="";
+        function showNum(e){
+            var show=document.getElementById("showWindow");
+            switch(e.value){
+                case "1":show.value+=1;break;
+                case "2":show.value+=2;break;
+                case "3":show.value+=3;break;
+                case "4":show.value+=4;break;
+                case "5":show.value+=5;break;
+                case "6":show.value+=6;break;
+                case "7":show.value+=7;break;
+                case "8":show.value+=8;break;
+                case "9":show.value+=9;break;
+                case "0":show.value+=0;break;
+                case ".":show.value+=".";break;
+                case "+":
+                    temp1=show.value;
+                    symb="+";
+                    show.value="";
+                    break;
+                case "-":
+                    temp1=show.value;
+                    symb="-";
+                    show.value="";
+                    break;
+                case "×":
+                    temp1=show.value;
+                    symb="*";
+                    show.value="";
+                    break;
+                case "÷":
+                    temp1=show.value;
+                    symb="/";
+                    show.value="";
+                    break;
+                case "=":
+                    temp2=show.value;
+                    if(parseFloat(eval(temp1+symb+temp2))){
+                        show.value=eval(temp1+symb+temp2);
+                        //alert(eval(temp1+symb+temp2));
+                    }else{
+                        show.value="error!"
+                    }
+                    break;
+                case "CLEAR":
+                    show.value="";
+                    temp1="";
+                    temp2="";
+                    break;
+                case "BACK":
+                    show.value=show.value.substring(0,show.value.length-1);
+                    break;
+                case "POWER":
+                    show.value=(Math.pow(parseFloat(show.value),2)).toString();
+                    break;
+            }
+        }
+        //function compute(e){}
+    </script>
+</body>
+</html>
