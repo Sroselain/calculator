@@ -1,0 +1,27 @@
+.table{
+    border:2px solid purple;
+    border-radius: 10px;
+    margin:200px auto;
+    padding:10px;
+}
+th{
+    border:0px solid darkred;
+}
+td{
+    border:0px solid black;
+}
+td{
+    text-align: center;
+}
+#showWindow{
+    text-align: right;
+    border:1px solid cornflowerblue;
+    border-radius: 3px;
+}
+.btn{
+    border: 2px greenyellow solid;
+    border-radius: 3px;
+    background-color: antiquewhite;
+    width:70px;
+    height:20px;
+}
